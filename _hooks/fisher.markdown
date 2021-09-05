@@ -1,0 +1,5 @@
+---
+title: Fisher
+date: 2020-12-20 09:42:00 Z
+---
+Fishing, the art that nutures the heart. Jijiomo lives, breathes, and eats fish. He's spent quite a bit on fishing expeditions before, and has even caught some of the fiestiest of fiends. He's sold fancier looking fish to nobles before, and has even mentioned offhand about meeting the love of his life through the trade.

@@ -1,0 +1,23 @@
+backend:
+  name: github
+  repo: crekulon/aez
+  branch: master
+
+media_folder: "img/uploads"
+
+collections:
+  - name: "media"
+    label: "Media"
+    folder: "_media"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: 
+      - {label: "Image", name: "image", widget: "image"}
+  - name: "hooks"
+    label: "Hooks"
+    folder: "_hooks"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: 
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}

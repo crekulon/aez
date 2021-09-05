@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,13 +27,7 @@
 						<p>In da alley</p>
 					</div>
 				</div>
-				<ul>
-					<li>You can /tell me through Jijiomo Chichiomo@Balmung, if we're familar/rped a couple times I don't mind you asking for my discord.</li>
-
-					<li>Open to most RP (both type-wise (paragraph, line by line, etc.) and theme wise), no ERP however.</li>
-
-					<li>Rusty with RPing, so easing back into it. While on the topic, I'm still not completely familiar with all of FFXIV's lore, so if I screw up please feel free to give me a nudge.</li>
-				</ul>
+				{{ site['OOC'] | markdownify}}
 			</section>
 		</div>
 		<div class="section-container" id="z2">
@@ -54,10 +50,9 @@
 				</div>
 
 				<div class="media">
-					<div style="background-image: url(./car.png)"></div>
-					<div style="background-image: url(./car.png)"></div>
-					<div style="background-image: url(./car.png)"></div>
-					<div style="background-image: url(./car.png)"></div>
+					{% for media in site.media %}
+						<div style="background-image: url({{ media['image'] }})"></div>
+					{% endfor %}
 				</div>
 			</section>
 		</div>
@@ -82,14 +77,12 @@
 
 				<div class="sec-content">
 					<h2>Employee Services</h2>
-					<div class="hook">
-						<h3>Trading Company Sailor</h3>
-						<p>As a dedicated worker to East Aldenard, he usually meets quite a bit of people through work, and has a decent network of contacts across the seas surrounding the Great Three Continents. Through word of mouth (usually from members of the Alchemist's Guild), one can learn about his private services; allegedly offering ingredients harder to find due to restrictions on importing, possession, or any other reason.</p>
-					</div>
-					<div class="hook">
-						<h3>Fisher</h3>
-						<p>Fishing, the art that nutures the heart. Jijiomo lives, breathes, and eats fish. He's spent quite a bit on fishing expeditions before, and has even caught some of the fiestiest of fiends. He's sold fancier looking fish to nobles before, and has even mentioned offhand about meeting the love of his life through the trade.</p>
-					</div>
+					{% for hook in site.hooks %}
+						<div class="hook">
+							<h3>{{ hook.title }}</h3>
+							{{ hook.content | markdownify }}
+						</div>
+					{% endfor %}
 				</div>
 			</section>
 		</div>
@@ -115,20 +108,12 @@
 				<div class="sec-content">
 					<h2>Employee Details</h2>
 					<div class="stats">
-						<ul>
-							<li>Name: Jijiomo Chichiomo</li>
-							<li>Age: 29</li>
-							<li>Position: Boatswain's Mate</li>
-							<li>Status: Extended Vacation</li>
-							<li>Extra Benefits: Lazarette Cargo Space, Flexible Schedules</li>
-							<li>Years employed: 8</li>
-							<li>Place of Residence: La Noscea/Ul'dah</li>
-						</ul>
+						{{ site['Bio-Stats'] | markdownify}}
 						<div class="portait"></div>
 					</div>
 					
-					<p>Born in Limsa Lominsa, his family has ties to the East Aldenard Trading Company dating to the foundation of the company. Members of the family were originally placed within Ul'dah, but branched out as the comapny grew. Jijiomo attended private education before coming to work for the company. Given expedited training in ship maintainance, and then recommended for placement as shipwright by Bibioko Chichioko (Logistics Administrator).</p>
-					<p>Occasionally works in Ul'dah office as a company representative for smaller deals. Currently renting loft space out of one of the company's smaller Sapphire Avenue stockhouses. Dedication to the company has been awarded with proper benefits. Notable extra skills include basic Hingan, and exhaustive knowledge of aquatic life.</p>					
+
+					{{ site['Bio'] | markdownify}}		
 				</div>
 			</section>
 		</div>
