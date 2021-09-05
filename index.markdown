@@ -51,7 +51,7 @@
 
 				<div class="media">
 					{% for media in site.media %}
-						<div style="background-image: url({{ media['image'] }})"></div>
+						<div style="background-image: url(.{{ media['image'] }})"></div>
 					{% endfor %}
 				</div>
 			</section>
