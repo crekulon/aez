@@ -8,11 +8,18 @@ media_folder: "img/uploads"
 collections:
   - name: "general"
     label: "Bio and OOC"
-    folder: "_data/general.yml"
-    fields: 
-      - {label: "Bio", name: "Bio", widget: "markdown"}
-      - {label: "Stats", name: "Bio-Stats", widget: "markdown"}
-      - {label: "OOC", name: "OOC", widget: "markdown"}
+    files:
+      - label: "Bio"
+        name: "bio"
+        file: "_data/bio.yml"
+        fields: 
+          - {label: "Bio", name: "bio", widget: "markdown"}
+          - {label: "Stats", name: "biostats", widget: "markdown"}
+      - label: "OOC"
+        name: "ooc"
+        file: "_data/ooc.yml"
+        fields: 
+          - {label: "OOC", name: "ooc", widget: "markdown"}
 
   - name: "media"
     label: "Media"

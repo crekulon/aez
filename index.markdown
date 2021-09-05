@@ -27,7 +27,7 @@
 						<p>In da alley</p>
 					</div>
 				</div>
-				{{ site['OOC'] | markdownify}}
+				{{ site.data.ooc.ooc | markdownify}}
 			</section>
 		</div>
 		<div class="section-container" id="z2">
@@ -108,12 +108,11 @@
 				<div class="sec-content">
 					<h2>Employee Details</h2>
 					<div class="stats">
-						{{ site['Bio-Stats'] | markdownify | replace: " ", " "}}
+						{{ site.data.bio.bio-stats | markdownify | replace: " ", " " }}
 						<div class="portait"></div>
 					</div>
 					
-
-					{{ site['Bio'] | markdownify | replace: " ", " "}}		
+					{{ site.data.bio.bio | markdownify | replace: " ", " " }}
 				</div>
 			</section>
 		</div>
