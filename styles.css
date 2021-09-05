@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Allison&family=Special+Elite&display=swap');
+@font-face {
+    font-family: 'Eorzea';
+    src: url('./Eorzea.woff2') format('woff2'),
+        url('./Eorzea.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+    background-color: #090c11;
+    color: #1f1809;
+    overflow: hidden;
+    font-size: calc(0.6rem + 0.2vw + 0.5vh);
+    letter-spacing: 1px;
+    font-family: 'Special Elite', serif;
+}
+ol, ul {
+    padding-left: 15px;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* get off yo phone fool... what the hell r u doin */
+@media only screen and (max-width: 800px) {
+    body, html {
+        overflow: hidden;
+    }
+    
+    body:after {
+        content: "";
+        z-index: 10000000; /*turbo mode*/
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-image: url('frogphone.gif');
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+    body:after {
+        background-image: url('./img/widenscreen.jpg');
+    }
+}		
+
+/* aez zone core elements */
+main {
+    position: relative;
+    max-height: 100vh;
+    max-width: 95vw;
+    width: 960px;
+    height: 96vh;
+    margin: 2vh auto;
+    border-radius: 10px;
+    background-image: url(./bg.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+main::after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background-image: url(./clip.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translate(-50%, -75px);
+    filter: drop-shadow(0 -7px 10px black);
+}
+
+.section-container, section {
+    transition: transform 400ms cubic-bezier(.47,.06,.03,.99);
+}
+
+.section-container {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    transform-origin: top right;
+}
+
+section {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    padding: 100px 2vw 2vh;
+    border-radius: 2px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    background: url(./parch.jpg);
+    background-color: #ece6cd;
+    background-size: cover;
+    box-shadow: 0px -2px 5px black;
+    overflow-y: auto;
+    z-index: 1;
+}
+
+#z2 section {
+    background-image: url(./parch2.jpg)
+}
+
+#z3 section {
+    background-image: url(./parch3.jpg)
+}
+
+#z4 section {
+    background-image: url(./parch4.jpg)
+}
+
+.section-container.topmost-page {
+    z-index: 4;
+    transition: transform 400ms cubic-bezier(.47,.06,.03,.99);
+}
+
+.hovering-section .section-container.topmost-page {
+    transform: rotate(-2deg) translate(25vw, 10vh);
+}
+
+.hovering-section .hovered-section ~ .section-container {
+    transform: rotate(-4deg) translate(7vw, 9vh);
+}
+
+.hovering-section .hovered-section ~ .section-container.topmost-page {
+    transform: rotate(-5deg) translate(15vw, 20vh);
+}
+
+.hovering-section .hovered-section ~ .section-container ~ .section-container {
+    transform: rotate(-7deg) translate(9vw, 13vh);
+}
+
+.hovering-section .hovered-section ~ .section-container ~ .section-container.topmost-page {
+    transform: rotate(-10deg) translate(15vw, 20vh);
+}
+
+.hovering-section .hovered-section ~ .section-container ~ .section-container ~ .section-container {
+    transform: rotate(-20deg) translate(5vw, 5vh);
+}
+
+.hovering-section .hovered-section ~ .section-container ~ .section-container ~ .section-container.topmost-page {
+    transform: rotate(-18deg) translate(15vw, 20vh);
+}
+
+.transitioning-page .section-container:not(.transitioned-page) {
+    transform: translateX(50vw) rotate(-10deg) !important;
+    transition: transform 600ms cubic-bezier(.47,.06,.03,.99);
+}
+
+.transitioning-page .section-container.transitioned-page, .transitioning-in .section-container.transitioned-page {
+    z-index: 3;
+}
+
+.transitioning-page .section-container.previous-page, .transitioning-in .section-container.previous-page {
+    z-index: 2;
+}
+
+.transitioned-page ~ .section-container {
+    z-index: 5 !important;
+}
+
+.transitioned-page ~ .section-container ~ .section-container {
+    z-index: 6 !important;
+}
+
+.transitioned-page ~ .section-container ~ .section-container ~ .section-container {
+    z-index: 7 !important;
+}
+
+
+.tab {
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 2;
+    transform: translateX(-100%);
+    background: yellow;
+    height: 35px;
+    padding: 0 10px;
+    padding-right: 25px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.transitioned-page .tab, .transitioning-in .tab, .transitioning-page .tab, .topmost-page .tab {
+    pointer-events: none;
+}
+
+#z2 .tab {
+    top: 60px;
+}
+
+#z3 .tab {
+    top: 100px;
+}
+
+#z4 .tab {
+    top: 140px;
+}
+
+section.select-1 {
+    z-index: 4;    
+}
+
+section.select-2 {
+    z-index: 3;    
+}
+
+section.select-3 {
+    z-index: 2;    
+}
+
+section.select-4 {
+    z-index: 1;    
+}
+
+/* Section Header */
+.sec-header p {
+    font-family: "Eorzea";
+}
+
+.sec-header img {
+    max-height: 80px;
+}
+
+.sec-header:first-child > div {
+    display: flex;
+}
+
+.sec-header h2 {
+    font-family: 'Allison', cursive;
+}
+
+.sec-header h2 span {
+    font-family: 'Special Elite', serif;
+    font-size: 1rem;
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    transform: translateY(100%);
+}
+
+.sec-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    border-bottom: 5px;
+    border-style: double;
+}
+
+.sec-header > div:nth-child(1) {
+    flex-basis: 20%;
+}
+
+.sec-header > div:nth-child(1) > p:nth-child(2) {
+    padding: 10px;
+}
+
+.sec-header h2 {
+    position: relative;
+    flex-basis: 60%;
+    margin: auto;
+    font-size: calc(0.7em + 2vw);
+    text-align: center;
+    flex-grow: 1;
+}
+
+.sec-header > div:nth-child(3) {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+    text-align: right;
+}
+
+/* Section content */
+
+.sec-content h2 {
+    font-family: 'Allison', cursive;
+    font-size: calc(1em + 2.5vw);
+    margin: 0.25em 0;
+}
+
+.sec-content p {
+    margin: 1em 0;
+    line-height: 1.25em;
+}
+
+/* Section content - BIO */
+.stats {
+    display: flex;
+}
+
+.stats li {
+    padding: 5px 0;
+}
+
+.portait {
+    min-width: 300px;
+    height: 264px;
+    background-image: url('critter2.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Section content - hooks */
+
+.hook {
+    border: 2px solid;
+    padding: 1em 0.5em 0;
+    margin: 1em 0;
+}
+
+.hook h3 {
+    font-family: 'Allison', cursive;
+    font-size: 2.5em;
+    padding: 0 0.5em 0.1em 0;
+    border-bottom: 2px dotted;
+    display: inline-block;
+}
+
+/* section content - media */
+.media {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.media > div {
+    flex-basis: 40%;
+    flex-grow: 1;
+    padding-top: 50%;
+    margin: 10px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ooc */
+.ooc ul {
+    margin: 1em auto;   
+}
+  
+.ooc ul li {
+    margin-bottom: 20px;
+}
+  
