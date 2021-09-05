@@ -80,7 +80,7 @@
 					{% for hook in site.hooks %}
 						<div class="hook">
 							<h3>{{ hook.title }}</h3>
-							{{ hook.content | markdownify }}
+							{{ hook.content | markdownify | replace: " ", " "}}
 						</div>
 					{% endfor %}
 				</div>
@@ -108,12 +108,12 @@
 				<div class="sec-content">
 					<h2>Employee Details</h2>
 					<div class="stats">
-						{{ site['Bio-Stats'] | markdownify}}
+						{{ site['Bio-Stats'] | markdownify | replace: " ", " "}}
 						<div class="portait"></div>
 					</div>
 					
 
-					{{ site['Bio'] | markdownify}}		
+					{{ site['Bio'] | markdownify | replace: " ", " "}}		
 				</div>
 			</section>
 		</div>

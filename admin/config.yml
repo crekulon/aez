@@ -6,6 +6,14 @@ backend:
 media_folder: "img/uploads"
 
 collections:
+  - name: "general"
+    label: "Bio and OOC"
+    folder: "_data/general.yml"
+    fields: 
+      - {label: "Bio", name: "Bio", widget: "markdown"}
+      - {label: "Stats", name: "Bio-Stats", widget: "markdown"}
+      - {label: "OOC", name: "OOC", widget: "markdown"}
+
   - name: "media"
     label: "Media"
     folder: "_media"
@@ -14,6 +22,7 @@ collections:
     fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Image", name: "image", widget: "image"}
+
   - name: "hooks"
     label: "Hooks"
     folder: "_hooks"
