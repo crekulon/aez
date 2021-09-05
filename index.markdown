@@ -108,7 +108,7 @@
 				<div class="sec-content">
 					<h2>Employee Details</h2>
 					<div class="stats">
-						{{ site.data.bio.bio-stats | markdownify | replace: " ", " " }}
+						{{ site.data.bio.biostats | markdownify | replace: " ", " " }}
 						<div class="portait"></div>
 					</div>
 					
@@ -168,6 +168,13 @@
 				}, 800);
 			}, false);
 		}
+
+		//no idea why but netlify has an encoding problem
+		var re = new RegExp(String.fromCharCode(160), "g");
+		document.querySelectorAll('.sec-content p').forEach(p => {
+			p.textContent = p.textContent.replace(re, " ")
+		});
+
 
 	</script>
 </body>
