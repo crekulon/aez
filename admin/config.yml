@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: crekulon/aez
-  branch: master
+  branch: main
 
 media_folder: "img/uploads"
 
