@@ -2,6 +2,7 @@ backend:
   name: github
   repo: crekulon/aez
   branch: main
+  site_domain: wonderful-boyd-98e1c0.netlify.com
 
 media_folder: "img/uploads"
 
