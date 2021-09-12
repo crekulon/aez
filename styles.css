@@ -82,17 +82,11 @@ table {
     }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 800px) {
-    body:after {
-        background-image: url('./img/widenscreen.jpg');
-    }
-}		
-
 /* aez zone core elements */
 main {
     position: relative;
     max-height: 100vh;
-    max-width: 95vw;
+    max-width: 90vw;
     width: 960px;
     height: 96vh;
     margin: 2vh auto;
@@ -118,6 +112,7 @@ main::after {
     background-repeat: no-repeat;
     transform: translate(-50%, -75px);
     filter: drop-shadow(0 -7px 10px black);
+    pointer-events: none;
 }
 
 .section-container, section {
@@ -382,18 +377,40 @@ section.select-4 {
 /* section content - media */
 .media {
     display: flex;
-    flex-wrap: wrap;
     margin-top: 20px;
+    justify-content: center;
 }
 
-.media > div {
-    flex-basis: 40%;
-    flex-grow: 1;
-    padding-top: 50%;
+.media-thumbnail {
     margin: 10px;
+    flex-basis: 10vh;
+    padding-top: 8vh;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    border: 6px double transparent;
+    background-color: black;
+    cursor: pointer;
 }
+
+.media-thumbnail.selected {
+    border: 6px double white;
+}
+
+.media-display {
+    overflow: hidden;
+    border-radius: 2px;
+    border: 4px double white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+}
+
+.media-display > img {
+    max-width: 100%;
+    max-height: 80vh;
+}  
 
 /* ooc */
 .ooc ul {

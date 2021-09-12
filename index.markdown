@@ -51,9 +51,14 @@
 
 				<div class="media">
 					{% for media in site.media %}
-						<div style="background-image: url(.{{ media['image'] }})"></div>
+						<div class="media-thumbnail {% if forloop.index == 1 %}selected{% endif %}" style="background-image: url(.{{ media['image'] }})" data-img="{{ media['image'] }}"></div>
 					{% endfor %}
 				</div>
+
+				<div class="media-display">
+					<img id="media-img" src="{{ site.media.first['image'] }}">
+				</div>
+
 			</section>
 		</div>
 		<div class="section-container" id="z3">
@@ -119,6 +124,7 @@
 	</main>
 
 	<script>
+		//set up pages/sections
 		var sections = document.querySelectorAll(".section-container");
 		for (var i = 0; i < sections.length; i++) {
 			var current = sections[i];
@@ -175,6 +181,16 @@
 			p.textContent = p.textContent.replace(re, " ")
 		});
 
+		//set up media swap
+		var mediaThumbnails = document.querySelectorAll(".media-thumbnail");
+		for (var i = 0; i < mediaThumbnails.length; i++) {
+			var current = mediaThumbnails[i];
+			current.addEventListener('click', function (event) {
+				document.querySelector('.media-thumbnail.selected').classList.remove('selected');
+				this.classList.add('selected');
+				document.getElementById('media-img').src=this.getAttribute('data-img');
+			});
+		}
 
 	</script>
 </body>
