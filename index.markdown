@@ -114,7 +114,7 @@
 					<h2>Employee Details</h2>
 					<div class="stats">
 						{{ site.data.bio.biostats | markdownify | replace: " ", " " }}
-						<div class="portait"></div>
+						<div class="portrait" style="background-image: url({{ site.data.bio.bioimg }})"></div>
 					</div>
 					
 					{{ site.data.bio.bio | markdownify | replace: " ", " " }}

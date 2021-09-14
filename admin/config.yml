@@ -14,6 +14,7 @@ collections:
         name: "bio"
         file: "_data/bio.yml"
         fields: 
+          - {label: "Bio Portrait", name: "bioimg", widget: "image"}
           - {label: "Bio", name: "bio", widget: "markdown"}
           - {label: "Stats", name: "biostats", widget: "markdown"}
       - label: "OOC"
