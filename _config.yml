@@ -3,6 +3,7 @@ email: your-email@example.com
 timezone: UTC
 description: 
 url: "."
+theme: fuckoff
 
 collections:
   media:
